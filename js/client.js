@@ -1,4 +1,4 @@
-const socket = io('http://localhost:8000')
+const socket = io('http://localhost:8000'|| process.env.PORT)
 
 
 const form=document.getElementById('send-container')
@@ -12,8 +12,6 @@ const append =(message,position)=>{
     messageElement.classList.add(position);
     messageContainer.append(messageElement);
     // audio.play();
-
-
 
 }
 form.addEventListener('submit',(e)=>{

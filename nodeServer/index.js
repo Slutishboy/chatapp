@@ -1,7 +1,7 @@
 // Node server
 // socket io connections 
 // const io=require('socket.io')(8000)
-const io = require('socket.io')(8000, {
+const io = require('socket.io')(process.env.PORT || 8000, {
     cors: {
       origin: '*',
     }
@@ -12,6 +12,8 @@ io.on('connection',socket =>{
     socket.on('new-user-joined',name =>{
         // console.log(name)
         users[socket.id]=name;
+        
+    console.log(process.env.PORT);
         socket.broadcast.emit('user-joined',name);
     
     });
